@@ -18,16 +18,23 @@ cash.Value = 0
         music.Name = "Music"
         music.Value = false
 
+                local shadows = Instance.new("BoolValue", settings)
+                shadows.Name = "Shadows"
+                shadows.Value = false
+
 local data
         local data2
+                local data3
     local success, fail = pcall(function()
 data = dataStore:GetAsync(plr.UserId.."-data")
                 data2 = dataStore:GetAsync(plr.UserId.."-music")
+                                data3 = dataStore:GetAsync(plr.UserId.."-shadows")
       end)
     if success then
       print("Got data successfully!")
       cash.Value = data
             music.Value = data2
+                        shadows.Value = data3
     else
 warn("Failed to get data")
 end)
